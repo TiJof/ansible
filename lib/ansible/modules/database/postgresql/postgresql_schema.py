@@ -147,7 +147,7 @@ def schema_exists(cursor, schema):
 
 def schema_delete(cursor, schema):
     if schema_exists(cursor, schema):
-        query = "DROP SCHEMA %s" % pg_quote_identifier(schema, 'schema')
+        query = "DROP SCHEMA %s CASCADE" % pg_quote_identifier(schema, 'schema')
         cursor.execute(query)
         return True
     else:
